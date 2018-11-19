@@ -12,4 +12,10 @@ program
         .description('Init the GraphQL project')
         .action(projname => new init(projname));
 
+program.on('--help', function(){
+    console.log('')
+    console.log('Examples:');
+    console.log('   gb-graphql-cli init helloWorld');
+    });
+
 program.parse( process.argv );
