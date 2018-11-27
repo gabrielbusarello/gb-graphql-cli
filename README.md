@@ -24,6 +24,7 @@ Options:
 Commands:
 
   init <projname>  Init the GraphQL project
+  run              Start the development server
 
 Examples:
   gb-graphql-cli init helloWorld
@@ -39,4 +40,33 @@ gb-graphql-cli init helloWorld
 2. After the initialization finishes, you have to start your database service and create a database named "helloWorld".
 3. With database service started, go to config.json file, located in "helloWorld/src/config/config.json".
 4. Change the "database" key, of key "development" to the name "helloWorld".
-5. 
+```json
+{
+    "development": {
+        "username": "root",
+        "password": null,
+        "database": "helloWorld",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "database_test",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    },
+    "production": {
+        "username": "root",
+        "password": null,
+        "database": "database_production",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    }
+}
+```
+5. Now it's time to run the application. Go to main of your project and type `gb-graphql-cli run`.
+6. Wait for the build and the nodemon server being ready.
+7. Access `localhost:3000/graphql`. As this application is from GraphQL, just have one end-point. In development environment, accessing this end-point in browser you will see the Graph*i*QL interface.
+8. Now you can create mutations and queries for the ExampleModel.
+9. Enjoy!

@@ -31,7 +31,7 @@ program
 
 program
     .command('run')
-        .description('Starts the development server')
+        .description('Start the development server')
         .action(() => new run());
 
 program.on('command:*', function () {
