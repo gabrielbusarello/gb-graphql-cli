@@ -4,7 +4,7 @@
 var program = require('commander');
 var pkg = require('./package.json');
 var init = require('./lib/init');
-var run = require('./lib/run');
+var { run } = require('./lib/commands');
 var colors = require('colors/safe');
 
 colors.setTheme({
