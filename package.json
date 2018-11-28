@@ -1,6 +1,6 @@
 {
   "name": "gb-graphql-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Command Line interface for GraphQL applications.",
   "main": "cli.js",
   "scripts": {
