@@ -14,20 +14,22 @@ npm install -g gb-graphql-cli
 
 ### Running `gb-graphql-cli --help`
 ```sh
-Usage: cli [options] [command]
+Usage: gb-graphql-cli [options] [command]
 
 Options:
 
-  -v, --version    output the version number
-  -h, --help       output usage information
+  -v, --version              output the version number
+  -h, --help                 output usage information
 
 Commands:
 
-  init <projname>  Init the GraphQL project
-  run              Start the development server
+  init [options] <projname>  Init the GraphQL project
+  run                        Start the development server
 
 Examples:
-  gb-graphql-cli init helloWorld
+   gb-graphql-cli init helloWorld
+   gb-graphql-cli init helloWorld -d mssql
+   gb-graphql-cli run
 
 ```
 
@@ -36,6 +38,9 @@ Assuming that you have installed the cli, follow the steps below for run your fi
 1. The first step, is initialize the project:
 ```sh
 gb-graphql-cli init helloWorld
+# If you are using another DBMS, you can set like that:
+# Possible values: (mysql, mssql, sqlite, postgres)
+gb-graphql-cli init helloWorld --dialect mssql
 ```
 2. After the initialization finishes, you have to start your database service and create a database named "helloWorld".
 3. With database service started, go to config.json file, located in "helloWorld/src/config/config.json".

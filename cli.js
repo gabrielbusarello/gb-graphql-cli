@@ -25,9 +25,11 @@ program.version( pkg.version, '-v, --version' );
 
 program
     .command('init <projname>')
-        // .option('-d, --delay', 'You can set')
+        .option('-d, --dialect [type]', 'You can set what dialect, that is, Database Management System (DBMS) the project will use. Possible values: (mysql, mssql, sqlite, postgres). Default: mysql', 'mysql')
         .description('Init the GraphQL project')
-        .action(projname => new init(projname));
+        .action((projname, options) => {
+            new init(projname, options.dialect);
+        });
 
 program
     .command('run')
