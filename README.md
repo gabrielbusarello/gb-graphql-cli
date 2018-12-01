@@ -25,11 +25,13 @@ Commands:
 
   init [options] <projname>  Init the GraphQL project
   run                        Start the development server
+  create <schema> <name>     Create files based on a schematic. Possible schemas: (model, resource, resolver, schema)
 
 Examples:
    gb-graphql-cli init helloWorld
    gb-graphql-cli init helloWorld -d mssql
    gb-graphql-cli run
+   gb-graphql-cli create model example
 
 ```
 
