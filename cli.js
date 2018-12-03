@@ -20,7 +20,6 @@ colors.setTheme({
     error: 'red'
 });
 
-
 program.version( pkg.version, '-v, --version' );
 
 program
