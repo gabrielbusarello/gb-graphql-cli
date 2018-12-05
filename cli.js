@@ -42,13 +42,13 @@ program
 
 program
     .command('create <schema> <name>')
-    .description('Create files based on a schematic. Possible schemas: (model, resource, resolver, schema)')
+    .description('Create files based on a schematic. Possible schemas: (model, resource)')
     .action((schema, name) => {
-        if (schema === 'model' || schema === 'resource' || schema === 'resolver' || schema === 'schema') {
+        if (schema === 'model' || schema === 'resource') {
             new create(schema, name);
         } else {
             console.log(colors.error('The schema not exists.'));
-            console.log(colors.help('Possible schemas: (model, resource, resolver, schema)'));
+            console.log(colors.help('Possible schemas: (model, resource)'));
         }
     })
 
