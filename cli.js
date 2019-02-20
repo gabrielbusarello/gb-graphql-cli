@@ -25,10 +25,11 @@ program.version( pkg.version, '-v, --version' );
 program
     .command('init <projname>')
         .option('-d, --dialect [type]', 'You can set what dialect, that is, Database Management System (DBMS) the project will use. Possible values: (mysql, mssql, sqlite, postgres). Default: mysql', 'mysql')
+        .option('-a, --auth', 'Defines if the project have authentication')
         .description('Init the GraphQL project')
         .action((projname, options) => {
             if (options.dialect === 'mysql' || options.dialect === 'mssql' || options.dialect === 'sqlite' || options.dialect === 'postgres') {
-                new init(projname, options.dialect);
+                new init(projname, options.dialect, options.auth);
             } else {
                 console.log(colors.error('The seted dialect not exists.'));
                 console.log(colors.help('Possible values: (mysql, mssql, sqlite, postgres)'));
@@ -42,15 +43,20 @@ program
 
 program
     .command('create <schema> <name>')
-    .description('Create files based on a schematic. Possible schemas: (model, resource)')
-    .action((schema, name) => {
-        if (schema === 'model' || schema === 'resource') {
-            new create(schema, name);
-        } else {
-            console.log(colors.error('The schema not exists.'));
-            console.log(colors.help('Possible schemas: (model, resource)'));
-        }
-    })
+        .description('Create files based on a schematic. Possible schemas: (model, resource)')
+        .action((schema, name) => {
+            if (schema === 'model' || schema === 'resource') {
+                new create(schema, name);
+            } else {
+                console.log(colors.error('The schema not exists.'));
+                console.log(colors.help('Possible schemas: (model, resource)'));
+            }
+        });
+
+program
+    .command('add <type>')
+        .description('Adds support of some other options. Possible options: (auth)')
+        .action(() => new add());
 
 program.on('command:*', function () {
     console.log(colors.error(`Invalid command: ${program.args.join(' ')}\nSee --help for a list of available commands.`));
@@ -62,6 +68,7 @@ program.on('--help', function(){
     console.log('Examples:');
     console.log('   gb-graphql-cli init helloWorld');
     console.log('   gb-graphql-cli init helloWorld -d mssql');
+    console.log('   gb-graphql-cli init helloWorld -a');
     console.log('   gb-graphql-cli run');
     console.log('   gb-graphql-cli create model example');
 });

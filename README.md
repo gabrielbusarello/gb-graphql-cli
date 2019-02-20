@@ -30,6 +30,7 @@ Commands:
 Examples:
    gb-graphql-cli init helloWorld
    gb-graphql-cli init helloWorld -d mssql
+   gb-graphql-cli init helloWorld -a
    gb-graphql-cli run
    gb-graphql-cli create model example
 
